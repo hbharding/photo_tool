@@ -1,0 +1,1 @@
+(function(e,t,n){n("#actions .button-group li").click(function(){n("#actions .button-group li").removeClass("selected");n(this).addClass("selected")})})(this,document,jQuery);

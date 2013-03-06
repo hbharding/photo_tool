@@ -1,0 +1,247 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import
+//   "foundation/components/grid",
+//   "foundation/components/visibility",
+//   "foundation/components/block-grid",
+//   "foundation/components/type",
+//   "foundation/components/buttons",
+//   "foundation/components/forms",
+//   "foundation/components/custom-forms",
+//   "foundation/components/button-groups",
+//   "foundation/components/dropdown-buttons",
+//   "foundation/components/split-buttons",
+//   "foundation/components/flex-video",
+//   "foundation/components/section",
+//   "foundation/components/top-bar",
+//   "foundation/components/orbit",
+//   "foundation/components/reveal",
+//   "foundation/components/joyride",
+//   "foundation/components/clearing",
+//   "foundation/components/alert-boxes",
+//   "foundation/components/breadcrumbs",
+//   "foundation/components/keystrokes",
+//   "foundation/components/labels",
+//   "foundation/components/inline-lists",
+//   "foundation/components/pagination",
+//   "foundation/components/panels",
+//   "foundation/components/pricing-tables",
+//   "foundation/components/progress-bars",
+//   "foundation/components/side-nav",
+//   "foundation/components/sub-nav",
+//   "foundation/components/switch",
+//   "foundation/components/magellan",
+//   "foundation/components/tables",
+//   "foundation/components/thumbs",
+//   "foundation/components/tooltips",
+//   "foundation/components/dropdown";
+
+
+
+html, body {
+	background: #222;
+	height: 100%;
+	overflow: hidden;
+}
+
+body {
+	min-height: 100%;
+}
+
+
+
+header#header {
+	border-bottom: 1px solid #ccc;
+	z-index: 9000;
+}
+
+section#main {
+	max-width: 1200px;
+	height: 100%;
+	position: relative;
+}
+
+#side-panel, #main-panel { -webkit-transition: 0.25s all ease-in; -moz-transition: 0.25s all ease-in; -o-transition: 0.25s all ease-in; transition: 0.25s all ease-in; }
+
+section#side-panel {
+	position: relative;
+	background: #f8f8f8;
+	height: 100%;
+	border-right: 1px solid #000;
+	border-left: 1px solid #000;
+
+	ul.side-nav {
+		position: relative;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		height: inherit;
+		padding-top: 0px;
+		padding-bottom: ($topbar-height*2);
+
+
+		li {
+			@include clearfix;
+			border-bottom: 1px solid transparent;
+			background: #f8f8f8;
+			padding: 10px 10px;
+			-webkit-transition: all .15s;
+			
+			img { @include image-border; }
+			dl { float: left; margin-right: 15px; margin-bottom: 0px; }
+			dl:last-child { margin-right: 0px; }
+			dt { font-size: 10px; text-transform: uppercase; margin-bottom: 0px }
+			dd {  }
+
+			//removes padding from ad's meta info
+			.small-9 { padding: 0px; }
+
+		}
+
+		li:nth-child(2n) { background: #e8e8e8; }
+
+		li:hover {
+			background: #555;
+			color: #fff;
+			border-bottom: 1px solid #000;
+
+			div + div:after {
+				@include css-triangle(10px, #fff, left);
+				position: absolute;
+				top: -10px;
+				right: -5px;
+				-webkit-transform:rotate(-45deg);
+			}
+		}
+	}
+}
+
+
+#search { 
+	background: #e8e8e8;
+
+	.section-container  {
+		margin-bottom: 0px;
+		background: #555;
+		border-right: none;
+
+		.section:first-child .title { border-left: none; } 
+
+		.title { border-top: 1px solid transparent; }
+		//.title:first-child { border-left: none; }
+		.content { border-right: none; border-left: none; border-bottom: 1px solid #999; color: #fff;
+			.sub-nav {
+				padding-top: 7px;
+				padding-bottom: 7px;
+				dt, dd { margin-bottom: 0px; }
+			}
+		}
+	}
+	
+}
+
+#actions {
+	background: #555;
+	border-bottom: 1px solid #000;
+
+	.button-group { margin: 0px auto; padding: 10px 0; width: 100%;}
+	.button-group li { width: 33.33%;}
+	.button {
+		width: 100%;
+		margin-bottom: 0px;
+		-webkit-transition: all;
+		font-weight: normal;
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	li { opacity: .25; }
+	li:hover, li.selected { opacity: 1; font-weight: bold; }
+
+}
+
+section#main-panel {
+	background: #999;
+	//background: #333;
+	padding-bottom: $topbar-height;
+	//border-left: 1px solid #000;
+	//position: relative;
+	height: 100%;
+
+	* {
+		//display: none;
+	}
+
+	.ad-images {
+		position: relative;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		padding: 10px 0;
+		height: inherit;
+
+		//img { @include image-border; }
+	}
+}
+
+table.meta {
+	width: 100%;
+	margin-bottom: 0px;
+	thead tr {
+		height: 48px;
+		border-bottom: 1px solid #000; 
+	}
+
+	tbody tr {
+		height: 63px;
+		border-bottom: 1px solid #999; 
+	}
+
+	.ad-id:hover {
+		cursor: pointer;
+		color: $primary-color;
+
+		&:after {
+		content: "Edit";
+		//margin-left: 10px;
+		background-color: #555;//$primary-color;
+		position: absolute;
+		line-height: 1;
+		padding: 0.1875em 0.625em 0.25em;
+		font-size: 14px;
+		color: #fff;
+		margin-top: 4px;
+		margin-left: 6px;
+		}
+	}
+}
+
+#myModal {
+	top: 200px;
+}
+
+@media all and (max-width: 787px) {
+	.meta tbody td { font-size: 14px; }
+}	
+
+.clearing-thumbs img { opacity: 1; -webkit-transition: all .15s; }
+
+.clearing-thumbs img:hover {
+	opacity: .7;
+}
+
+
+
+
+
+
+
+
+
+
+
+
